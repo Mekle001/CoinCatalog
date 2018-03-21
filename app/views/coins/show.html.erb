@@ -1,0 +1,47 @@
+<% provide :title, "Coin Details" %>
+<h1>Coin Details</h1>
+<p>
+  <strong>Coin Name:</strong>
+  <%= @coin.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @coin.description %>
+</p>
+
+<p>
+    Mint: <%= @coin.mint&.name %> <br>
+    Artist: <%= @coin.artist&.name %> <br>
+  Size: <%= @coin.size %><%= @coin.unit_size.name %> <br>
+  Thickness: <%= @coin.thickness %><%= @coin.unit_thickness.name %>
+</p>
+
+<h2>Editions</h2>
+<%= link_to 'Add Edition', new_coin_edition_path(@coin) %>
+<table>
+<tr>
+  <th>Name</th>
+  <th>Description</th>
+  <th>Actions</th>
+</tr>
+  <% @coin.editions.each do |edition| %>
+    <tr>
+      <td>
+        <%= edition.name %>
+      </td>
+      <td>
+        <%= edition.description %>
+      </td>
+      <td>
+        <%= link_to 'Details', edition_path(edition) %> | <%= link_to 'Edit', edit_edition_path(edition) %>
+        | <%= link_to 'Delete', edition_path(edition),
+                      method: :delete,
+                      data: { confirm: 'Are you sure?' } %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Edit Coin', edit_coin_path(@coin) %> |
+<%= link_to 'Back', coins_path %>

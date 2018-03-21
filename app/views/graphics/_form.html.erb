@@ -1,0 +1,40 @@
+<%= form_with model: @graphic, local: true do |form| %>
+
+  <% if @graphic.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@graphic.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <ul>
+        <% @graphic.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.label :format %><br>
+    <%= form.text_field :format %>
+  </p>
+
+  <p>
+    <%= form.label :image %><br>
+    <%= form.file_field :image %>
+    <% if form.object.image? %>
+      <br>
+      <%= image_tag form.object.image.thumb.url %>
+      <br>
+      <%= form.label :remove_image %>
+      <%= form.check_box :remove_image %>
+    <% end %>  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

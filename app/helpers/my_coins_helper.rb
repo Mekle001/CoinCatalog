@@ -1,0 +1,2 @@
+module MyCoinsHelper
+end

@@ -1,0 +1,2 @@
+class Enamel < ApplicationRecord
+end

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  notes: MyText
+  mission: MyText
+  track_code: MyString
+  activate_code: MyString
+  reference_code: MyString
+
+two:
+  notes: MyText
+  mission: MyText
+  track_code: MyString
+  activate_code: MyString
+  reference_code: MyString

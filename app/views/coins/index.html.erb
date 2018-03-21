@@ -1,0 +1,31 @@
+<% provide :title, "All Coins" %>
+<%= link_to 'New Coin', new_coin_path %>
+<hr>
+<% will_paginate %>
+<table width="100%">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Contributor</th>
+    <th>Actions</th>
+  </tr>
+
+  <% @coins.each do |coin| %>
+    <tr>
+      <td><%= coin.name %></td>
+      <td><%= coin.description %></td>
+      <td><%= coin.user.name %></td>
+      <td>
+        <% if logged_in? %>
+        <%= link_to 'Show', coin_path(coin) %> |
+        <%= link_to 'Edit', edit_coin_path(coin) %> |
+        <%= link_to 'Delete', coin_path(coin),
+                      method: :delete,
+                      data: { confirm: 'Are you sure?' } %>
+          <% end %>
+          </td>
+    </tr>
+  <% end %>
+</table>
+<% will_paginate %>
+

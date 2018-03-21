@@ -1,0 +1,15 @@
+<h1>Graphic</h1>
+<p>
+  <strong>Graphic Name:</strong>
+  <%= @graphic.name %>
+  <% if @graphic.image.url != nil %>
+    <br>
+  <%= image_tag @graphic.image.url %>
+  <% end %>
+</p>
+
+<p>
+</p>
+
+<%= link_to 'Edit Graphic', edit_graphic_path(@graphic) %> |
+<%= link_to 'Back', graphics_path %>

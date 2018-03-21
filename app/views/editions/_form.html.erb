@@ -1,0 +1,40 @@
+<%= form_for @edition, url: myurl do |form| %>
+
+  <% if @edition.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@edition.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <ul>
+        <% @edition.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <p>
+    <%= form.hidden_field :coin_id %>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.label :description %><br>
+    <%= form.text_area :description %>
+  </p>
+
+  <p>
+    <%= form.label :minted %><br>
+    <%= form.text_area :minted %>
+  </p>
+
+  <p>
+    <%= form.label :mintdate %><br>
+    <%= form.date_select :mintdate %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

@@ -1,0 +1,25 @@
+<h1>Coin Details</h1>
+<p>
+  <strong>Coin Name:</strong>
+  <%= @edition.coin.name %>
+</p>
+<p>
+  <strong>Edition Name:</strong>
+  <%= @edition.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @edition.description %>
+</p>
+
+<p>
+  Minted Count: <%= @edition.minted %> <br>
+  Mint Date: <%= @edition.mintdate.to_date %>
+  <% if @edition.mint != nil %>
+  Mint: <%= @edition.mint?.name %>|
+  <% end %>
+</p>
+
+<%= link_to 'Edit Edition', edit_edition_path(@edition) %> |
+<%= link_to 'Back to Coin', coin_path(@edition.coin) %>

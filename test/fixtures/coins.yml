@@ -1,0 +1,10 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: Initial Coin
+  description: This is a long chunk of text
+
+two:
+  name: Second Coin
+  description: This is another long chunk
+

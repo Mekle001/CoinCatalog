@@ -1,0 +1,50 @@
+<%= form_with model: @coin, local: true do |form| %>
+
+  <% if @coin.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@coin.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <ul>
+        <% @coin.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.label :description %><br>
+    <%= form.text_area :description %>
+  </p>
+
+  <p>
+    <%= form.label :mint %><br>
+    <%= form.collection_select :mint_id, Mint.all, :id, :name, include_blank: true %>
+  </p>
+
+  <p>
+    <%= form.label :artist %><br>
+    <%= form.collection_select :artist_id, Artist.all, :id, :name, include_blank: true %>
+  </p>
+
+  <p>
+    <%= form.label :size %><br>
+    <%= form.number_field :size, in: 1.0..200.0, step: 0.1 %>
+    <%= form.collection_select :unitsize_id, Unit.all, :id, :name %>
+  </p>
+  <p>
+    <%= form.label :thickness %><br>
+    <%= form.number_field :thickness, in: 1.0..50.0, step: 0.1 %>
+    <%= form.collection_select :unitthickness_id, Unit.all, :id, :name %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

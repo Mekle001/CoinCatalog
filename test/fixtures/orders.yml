@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  order_date: 2017-01-01
+  comments: MyText
+
+two:
+  order_date: 2017-01-01
+  comments: MyText

@@ -1,0 +1,30 @@
+<%= link_to 'New Graphic', new_graphic_path %>
+<hr>
+<table width="100%">
+  <tr>
+    <th width="50px"></th>
+    <th>Name</th>
+    <th>Description</th>
+    <th width="150px"></th>
+  </tr>
+
+  <% @graphic.each do |graphic| %>
+    <tr>
+      <td>
+        <% if graphic.image.url != nil %>
+        <%= image_tag graphic.image.icon.url %>
+        <% end %>
+      </td>
+
+      <td><%= graphic.name %></td>
+      <td><%= graphic.format %></td>
+      <td><%= link_to 'Show', graphic_path(graphic) %> |
+      <%= link_to 'Edit', edit_graphic_path(graphic) %> |
+      <%= link_to 'Delete', graphic_path(graphic),
+                      method: :delete,
+                      data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to "Home", "/" %> | <%= link_to "Coins", coins_path %>

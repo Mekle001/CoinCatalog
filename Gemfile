@@ -44,6 +44,8 @@ gem 'faker',          '~> 1.7.3'
 gem 'will_paginate',           '~> 3.1.6'
 gem 'bootstrap-will_paginate', '~> 1.0.0'
 
+gem 'figaro'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -61,6 +63,12 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
+
+  gem 'capistrano'
+  gem 'capistrano3-puma'
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano-rvm'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

@@ -7,7 +7,6 @@
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
 
-server "new.geotrackable.info", user:"deploy", roles: %w{app db web}
 
 
 # role-based syntax
@@ -43,7 +42,7 @@ server "new.geotrackable.info", user:"deploy", roles: %w{app db web}
 # Global options
 # --------------
 #  set :ssh_options, {
-#    keys: %w(~/.ssh/id_rsa),
+#    keys: %w(/home/rlisowski/.ssh/id_rsa),
 #    forward_agent: false,
 #    auth_methods: %w(password)
 #  }

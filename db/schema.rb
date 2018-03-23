@@ -12,34 +12,34 @@
 
 ActiveRecord::Schema.define(version: 20180320224451) do
 
-  create_table "artists", force: :cascade do |t|
+  create_table "artists", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "attributes", force: :cascade do |t|
+  create_table "attributes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "coins", force: :cascade do |t|
+  create_table "coins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.text "official_name"
     t.text "description"
     t.integer "series_number"
-    t.decimal "size"
-    t.decimal "thickness"
+    t.decimal "size", precision: 10
+    t.decimal "thickness", precision: 10
     t.boolean "never_icon"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "mint_id"
-    t.integer "icon_id"
-    t.integer "unitsize_id"
-    t.integer "unitthickness_id"
-    t.integer "artist_id"
-    t.integer "user_id"
+    t.bigint "mint_id"
+    t.bigint "icon_id"
+    t.bigint "unitsize_id"
+    t.bigint "unitthickness_id"
+    t.bigint "artist_id"
+    t.bigint "user_id"
     t.index ["artist_id"], name: "index_coins_on_artist_id"
     t.index ["icon_id"], name: "index_coins_on_icon_id"
     t.index ["mint_id"], name: "index_coins_on_mint_id"
@@ -48,19 +48,19 @@ ActiveRecord::Schema.define(version: 20180320224451) do
     t.index ["user_id"], name: "index_coins_on_user_id"
   end
 
-  create_table "editions", force: :cascade do |t|
+  create_table "editions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.text "description"
-    t.integer "coin_id"
+    t.bigint "coin_id"
     t.integer "minted"
     t.datetime "mintdate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "mint_id"
-    t.integer "icon_id"
-    t.integer "material_id"
-    t.integer "finish_id"
-    t.integer "user_id"
+    t.bigint "mint_id"
+    t.bigint "icon_id"
+    t.bigint "material_id"
+    t.bigint "finish_id"
+    t.bigint "user_id"
     t.index ["coin_id"], name: "index_editions_on_coin_id"
     t.index ["finish_id"], name: "index_editions_on_finish_id"
     t.index ["icon_id"], name: "index_editions_on_icon_id"
@@ -69,36 +69,36 @@ ActiveRecord::Schema.define(version: 20180320224451) do
     t.index ["user_id"], name: "index_editions_on_user_id"
   end
 
-  create_table "enamels", force: :cascade do |t|
+  create_table "enamels", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "finishes", force: :cascade do |t|
+  create_table "finishes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "graphics", force: :cascade do |t|
+  create_table "graphics", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "image"
     t.string "format"
-    t.decimal "width"
-    t.decimal "height"
+    t.decimal "width", precision: 10
+    t.decimal "height", precision: 10
     t.boolean "is_icon", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "materials", force: :cascade do |t|
+  create_table "materials", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "mints", force: :cascade do |t|
+  create_table "mints", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "website"
     t.string "prefix"
@@ -107,8 +107,8 @@ ActiveRecord::Schema.define(version: 20180320224451) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "my_coins", force: :cascade do |t|
-    t.integer "edition_id"
+  create_table "my_coins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "edition_id"
     t.boolean "activated"
     t.string "reference_code"
     t.string "public_name"
@@ -119,16 +119,16 @@ ActiveRecord::Schema.define(version: 20180320224451) do
     t.text "mission"
     t.string "track_code"
     t.string "activate_code"
-    t.decimal "original_price"
+    t.decimal "original_price", precision: 10
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["edition_id"], name: "index_my_coins_on_edition_id"
   end
 
-  create_table "order_items", force: :cascade do |t|
-    t.integer "order_id"
-    t.integer "my_coin_id"
-    t.decimal "cost"
+  create_table "order_items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "order_id"
+    t.bigint "my_coin_id"
+    t.decimal "cost", precision: 10
     t.text "comments"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -136,23 +136,23 @@ ActiveRecord::Schema.define(version: 20180320224451) do
     t.index ["order_id"], name: "index_order_items_on_order_id"
   end
 
-  create_table "orders", force: :cascade do |t|
+  create_table "orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "order_date"
-    t.integer "vendor_id"
-    t.decimal "shipping_cost"
+    t.bigint "vendor_id"
+    t.decimal "shipping_cost", precision: 10
     t.text "comments"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["vendor_id"], name: "index_orders_on_vendor_id"
   end
 
-  create_table "units", force: :cascade do |t|
+  create_table "units", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "email"
     t.datetime "created_at", null: false
@@ -168,13 +168,27 @@ ActiveRecord::Schema.define(version: 20180320224451) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
-  create_table "vendors", force: :cascade do |t|
+  create_table "vendors", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.text "url"
-    t.integer "mint_id"
+    t.bigint "mint_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["mint_id"], name: "index_vendors_on_mint_id"
   end
 
+  add_foreign_key "coins", "artists"
+  add_foreign_key "coins", "graphics", column: "icon_id", on_delete: :nullify
+  add_foreign_key "coins", "mints"
+  add_foreign_key "coins", "units", column: "unitsize_id", on_delete: :nullify
+  add_foreign_key "coins", "units", column: "unitthickness_id", on_delete: :nullify
+  add_foreign_key "coins", "users"
+  add_foreign_key "editions", "coins"
+  add_foreign_key "editions", "graphics", column: "icon_id", on_delete: :nullify
+  add_foreign_key "editions", "mints"
+  add_foreign_key "editions", "users"
+  add_foreign_key "my_coins", "editions"
+  add_foreign_key "order_items", "my_coins"
+  add_foreign_key "orders", "vendors"
+  add_foreign_key "vendors", "mints"
 end

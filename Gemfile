@@ -8,8 +8,6 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.5'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -18,6 +16,12 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+
+#gem 'activerecord-mysql2-adapter'
+#gem 'mysql2'
+gem 'mysql2', '>= 0.3.18', '< 0.5'
+#gem 'mysql2', :git => 'git://github.com/brianmario/mysql2.git'
+#gem 'mysql2', '0.3.20'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
@@ -32,7 +36,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
-gem 'bcrypt', '~> 3.1.9', platforms: [:ruby, :x64_mingw]
+gem 'bcrypt', '~> 3.1.9' #, platforms: [:ruby, :x64_mingw]
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -58,6 +62,8 @@ group :development, :test do
   gem 'guard',                    '~> 2.14.0'
   gem 'guard-minitest',           '~> 2.4.4'
   gem 'rails-controller-testing'
+  # Use sqlite3 as the database for Active Record
+  #gem 'sqlite3'
 end
 
 group :development do
@@ -69,6 +75,9 @@ group :development do
   gem 'capistrano-rails', require: false
   gem 'capistrano-bundler', require: false
   gem 'capistrano-rvm'
+end
+
+group :production do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

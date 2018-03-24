@@ -4,8 +4,8 @@ class Initial < ActiveRecord::SeedMigration
     puts "Creating Users"
     User.create!(name: "Mike Garlick",
                  email: "mike@earthlingsnw.com",
-                 password:"stheel",
-                 password_confirmation:"stheel",
+                 password:"password",
+                 password_confirmation:"password",
                  admin: true,
                  activated: true,
                  activated_at: Time.zone.now)

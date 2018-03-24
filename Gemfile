@@ -72,9 +72,11 @@ group :development do
 
   gem 'capistrano'
   gem 'capistrano3-puma'
-  gem 'capistrano-rails', require: false
-  gem 'capistrano-bundler', require: false
+  gem 'capistrano-rails'
+  gem 'capistrano-bundler'
   gem 'capistrano-rvm'
+  gem 'capistrano-rails-console', require: false
+
 end
 
 group :production do

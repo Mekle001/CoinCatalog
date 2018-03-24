@@ -17,11 +17,11 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
-#gem 'activerecord-mysql2-adapter'
-#gem 'mysql2'
+# Use sqlite3 as the database for Active Record
+#gem 'sqlite3'
+
+# Use mysql2 as the database for Active Record
 gem 'mysql2', '>= 0.3.18', '< 0.5'
-#gem 'mysql2', :git => 'git://github.com/brianmario/mysql2.git'
-#gem 'mysql2', '0.3.20'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
@@ -51,7 +51,6 @@ gem 'bootstrap-will_paginate', '~> 1.0.0'
 gem 'figaro'
 gem 'seed_migrations'
 
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -64,8 +63,6 @@ group :development, :test do
   gem 'guard',                    '~> 2.14.0'
   gem 'guard-minitest',           '~> 2.4.4'
   gem 'rails-controller-testing'
-  # Use sqlite3 as the database for Active Record
-  #gem 'sqlite3'
 end
 
 group :development do
@@ -77,6 +74,7 @@ group :development do
   gem 'capistrano-rails'
   gem 'capistrano-bundler'
   gem 'capistrano-rvm'
+  gem 'capistrano-rails-collection'
   gem 'capistrano-rails-console', require: false
 
 end

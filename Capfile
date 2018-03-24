@@ -36,6 +36,7 @@ require "capistrano/rails/migrations"
 require "capistrano/puma"
 require "capistrano/puma/nginx"
 require "capistrano/rails/console"
+require 'capistrano/rails/collection'
 
 install_plugin Capistrano::Puma  # Default puma tasks
 install_plugin Capistrano::Puma::Nginx  # if you want to upload a nginx site template

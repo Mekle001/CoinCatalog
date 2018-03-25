@@ -38,8 +38,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.9' #, platforms: [:ruby, :x64_mingw]
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+gem 'listen'
 
 gem 'carrierwave', '~> 0.10.0'
 gem 'mini_magick', '~> 4.3'
@@ -47,6 +46,10 @@ gem 'bootstrap-sass', '~> 3.3.7'
 gem 'faker',          '~> 1.7.3'
 gem 'will_paginate',           '~> 3.1.6'
 gem 'bootstrap-will_paginate', '~> 1.0.0'
+
+gem 'react-rails' #, github: 'reactjs/react-rails', branch: 'master'
+gem 'showdown-rails'
+gem 'responders'
 
 gem 'figaro'
 gem 'seed_migrations'

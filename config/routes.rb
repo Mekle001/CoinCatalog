@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   scope "admin" do
     #root 'welcome#index'
     resources :users
+    resources :artists
     resources :mints, :enamels, :units, :vendors, :materials, :finishes, :attributes
   end
 
@@ -34,6 +35,12 @@ Rails.application.routes.draw do
     resources :my_coins
     resources :orders do
       resources :orderitems
+    end
+  end
+
+  namespace :api do
+    namespace :v1 do
+      resources :artists, only: [:index, :create, :destroy, :update]
     end
   end
 

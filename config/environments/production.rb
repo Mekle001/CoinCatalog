@@ -69,8 +69,8 @@ Rails.application.configure do
       :address => "email-smtp.us-west-2.amazonaws.com",
       #:port => "587",
       :domain => "geotrackable.info",
-      :user_name => "AKIAIUULCRGLLVNVU24Q",
-      :password => "AoFaLUnMeSn8rotzilbCy5S2PEtHnHFylej23kevoR3Z ",
+      :user_name => Rails.application.secrets.email_user,
+      :password => Rails.application.secrets.email_password,
       :authentication => "plain",
       :enable_starttls_auto => true
   }

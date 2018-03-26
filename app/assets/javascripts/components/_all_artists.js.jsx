@@ -20,7 +20,7 @@ var AllArtists = createReactClass({
         return (
             <table className="artist" className='table'>
                 <tbody>
-                <tr className="title"><th>Name</th><th>Created At</th></tr>
+                <tr className="title"><th>Name</th><th>Created At</th><th>Last Updated</th></tr>
                 {artists}
                 </tbody>
             </table>

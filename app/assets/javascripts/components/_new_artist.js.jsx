@@ -15,8 +15,12 @@ var NewArtist = createReactClass({
         return (
             <div className='table'>
                 <div className='row'>
-                    <input className='col-lg-2' ref='name' placeholder='Enter the name of a new Artist' className='string form-control' />
-                    <button className='col-lg-1' onClick={this.handleClick}>Submit</button>
+                    <div className='col-sm-11'>
+                    <input ref='name' placeholder='Enter the name of a new Artist' className='string form-control' />
+                    </div>
+                    <div className='col-sm-1'>
+                    <button className='btn btn-default btn-block' onClick={this.handleClick}>Add</button>
+                    </div>
                 </div>
             </div>
         )

@@ -28,9 +28,8 @@ var ReactArtists = createReactClass({
             url: `/api/v1/artists/${item.id}`,
             type: 'PUT',
             data: { artist: item },
-            success: () => {
-                console.log('you did it!!!');
-                this.updateItems(item);
+            success: (response) => {
+                this.updateItems(response); //use updated from response, to get full object
                 // callback to swap objects
              }
         }
@@ -55,8 +54,8 @@ var ReactArtists = createReactClass({
     render() {
         return (
             <React.Fragment>
-                <AllArtists items={this.state.items} handleDelete={this.handleDelete} onUpdate={this.handleUpdate} />
                 <NewArtist handleSubmit={this.handleSubmit} />
+                <AllArtists items={this.state.items} handleDelete={this.handleDelete} onUpdate={this.handleUpdate} />
             </React.Fragment>
         )
     }

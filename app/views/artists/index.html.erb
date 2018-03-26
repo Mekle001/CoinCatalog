@@ -1,6 +1,10 @@
 <%# app/views/records/index.html.erb %>
 <% provide :title, "Artists" %>
-
-<%#= react_component 'AllArtists' %>
-
-<%= react_component 'ReactArtists' %>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h4>Artists</h4>
+  </div>
+  <div class="panel-body">
+  <%= react_component 'ReactArtists' %>
+  </div>
+</div>

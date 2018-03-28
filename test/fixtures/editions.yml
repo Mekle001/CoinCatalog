@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
+  name: MyString Edition 1
   description: MyText
   coin: one
 
 two:
-  name: MyString
+  name: MyString Edition 2
   description: MyText
   coin: two

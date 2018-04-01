@@ -3,7 +3,6 @@ var AllArtists = createReactClass({
         this.props.handleDelete(id);
     },
     onUpdate(artist) {
-        console.log("AllArtists:onUpdate")
         this.props.onUpdate(artist);
     },
     render() {

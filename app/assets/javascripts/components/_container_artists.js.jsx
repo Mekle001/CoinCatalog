@@ -23,7 +23,6 @@ var ReactArtists = createReactClass({
         });
     },
     handleUpdate(item) {
-        console.log("Container:" + item.id + " " + item.name)
         $.ajax({
             url: `/api/v1/artists/${item.id}`,
             type: 'PUT',

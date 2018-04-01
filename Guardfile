@@ -17,8 +17,8 @@
 
 guard :minitest do
   # with Minitest::Unit
-  watch(%r{^test/(.*)\/?test_(.*)\.rb$})
-  watch(%r{^test/controllers\/?(.*)\.rb$})
+  watch(%r{^test/(.*)\/?(.*)_test\.rb$})
+  #watch(%r{^test/controllers\/?(.*)\.rb$})
 
   watch('test/test_helper.rb') { 'test' }
   watch('config/routes.rb')    { integration_tests }
@@ -31,6 +31,7 @@ guard :minitest do
 
   watch(%r{app/views/coins/*}) do
     resource_tests('coins')
+    controller_test'coins'
   end
 
   # with Minitest::Spec
@@ -43,8 +44,8 @@ guard :minitest do
   watch(%r{^app/controllers/application_controller\.rb$}) { 'test/controllers' }
   watch(%r{^app/controllers/(.+)_controller\.rb$})        { |m| "test/integration/#{m[1]}_test.rb" }
   watch(%r{^app/views/(.+)_mailer/.+})                    { |m| "test/mailers/#{m[1]}_mailer_test.rb" }
-  # watch(%r{^lib/(.+)\.rb$})                               { |m| "test/lib/#{m[1]}_test.rb" }
-  # watch(%r{^test/.+_test\.rb$})
+  watch(%r{^lib/(.+)\.rb$})                               { |m| "test/lib/#{m[1]}_test.rb" }
+  watch(%r{^test/.+_test\.rb$})
   # watch(%r{^test/test_helper\.rb$}) { 'test' }
 
   # Rails < 4

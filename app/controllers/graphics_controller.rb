@@ -1,4 +1,5 @@
 class GraphicsController < ApplicationController
+  before_action :logged_in_user, only: [:create, :new, :edit, :update, :destroy]
 
   def new
     @graphic = Graphic.new

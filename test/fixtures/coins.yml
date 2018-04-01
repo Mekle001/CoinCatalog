@@ -5,10 +5,12 @@ one:
   description: This is a long chunk of text
   size: 2
   thickness: 5
+  user: michael
 
 two:
   name: Second Coin
   description: This is another long chunk
   size: 1.75
   thickness: 3
+  user: archer
 

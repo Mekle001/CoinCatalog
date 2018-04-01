@@ -1,4 +1,5 @@
 class EditionsController < ApplicationController
+  before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
 
   def new
     @coin = Coin.find(params[:coin_id])

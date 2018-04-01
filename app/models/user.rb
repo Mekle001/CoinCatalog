@@ -14,6 +14,12 @@ class User < ApplicationRecord
   has_many :coins
   has_many :editions
 
+  def User.getbyid (id)
+    #Rails.cache.fetch("user/#{id}", expires_in: 1.hour) do
+      User.find_by(id: id)
+    #end
+  end
+
   # Returns the hash digest of the given string.
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :

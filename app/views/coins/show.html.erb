@@ -22,7 +22,8 @@
 <table>
 <tr>
   <th>Name</th>
-  <th>Description</th>
+  <th>Finish</th>
+  <th>Material</th>
   <th>Actions</th>
 </tr>
   <% @coin.editions.each do |edition| %>
@@ -31,7 +32,10 @@
         <%= edition.name %>
       </td>
       <td>
-        <%= edition.description %>
+        <%= edition.finish.name unless  !edition.finish.present? %>
+      </td>
+      <td>
+        <%= edition.material.name unless !edition.material.present? %>
       </td>
       <td>
         <%= link_to 'Details', edition_path(edition) %> | <%= link_to 'Edit', edit_edition_path(edition) %>

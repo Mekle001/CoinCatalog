@@ -24,6 +24,12 @@
   </p>
 
   <p>
+    <%= form.label :is_icon %><br>
+    <%= form.check_box :is_icon %>
+  </p>
+
+
+  <p>
     <%= form.label :image %><br>
     <%= form.file_field :image %>
     <% if form.object.image? %>

@@ -60,7 +60,7 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
-  gem 'win32console', '1.3.2', platforms: [:mingw, :x64_mingw]
+  #gem 'win32console', '1.3.2', platforms: [:mingw, :x64_mingw]
   gem 'wdm', '>= 0.1.0' if Gem.win_platform?
   gem 'minitest-reporters',       '~> 1.1.14'
   gem 'guard',                    '~> 2.14.0'

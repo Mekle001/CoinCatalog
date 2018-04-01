@@ -21,9 +21,21 @@
 /yarn-error.log
 
 .byebug_history
-.idea
+
+#ignore rubymine config
+/.idea
 
 # Ignore encrypted secrets key file.
 config/secrets.yml.key
 config/database.yml
 config/application.yml
+
+
+#ignore precompiled assets
+public/assets/*
+
+#ignore uploaded data
+public/uploads/*
+
+#ignore vscode config
+/.vscode

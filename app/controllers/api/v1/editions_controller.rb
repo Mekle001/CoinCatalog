@@ -1,5 +1,6 @@
 class Api::V1::EditionsController < Api::V1::BaseController
-    before_action :valid_user, only: [:create, :update, :destroy]
+    skip_before_action :valid_user, only: [:index]
+    skip_before_action :admin_user
 
     def index
         if params[:coin_id].present?

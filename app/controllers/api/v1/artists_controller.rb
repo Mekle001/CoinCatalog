@@ -1,6 +1,5 @@
 class Api::V1::ArtistsController < Api::V1::BaseController
-  before_action :valid_user, only: [:create, :update, :destroy]
-  before_action :admin_user, only: [:create, :update, :destroy]
+  skip_before_action :valid_user, only: [:index]
 
   def index
     respond_with Artist.all
@@ -26,11 +25,6 @@ class Api::V1::ArtistsController < Api::V1::BaseController
     params.require(:artist).permit(:id, :name)
   end
 
-  def valid_user
-    unless logged_in?
-      head 422
-    end
-  end
 
   def admin_user
     unless current_user.admin?

@@ -43,6 +43,11 @@ Rails.application.routes.draw do
       resources :artists, only: [:index, :create, :destroy, :update]
       resources :coins, only: [:index, :create, :destroy, :update]
       resources :editions, only: [:index, :create, :destroy, :update]
+      resources :users, only: [:index, :create, :destroy, :update]
+      resources :mints, only: [:index, :create, :destroy, :update]
+      resources :finishes, only: [:index, :create, :destroy, :update]
+      resources :materials, only: [:index, :create, :destroy, :update]
+      resources :units, only: [:index, :create, :destroy, :update]
     end
   end
 

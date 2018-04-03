@@ -54,7 +54,7 @@ class EditionsController < ApplicationController
 
   private
   def edition_params
-    params.require(:edition).permit(:name, :description, :icon, :minted, :mintdate, :material)
+    params.require(:edition).permit(:name, :description, :icon, :minted, :mintdate, :material_id, :finish_id)
   end
 
 end

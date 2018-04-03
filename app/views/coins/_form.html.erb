@@ -4,7 +4,7 @@
     <div id="error_explanation">
       <h2>
         <%= pluralize(@coin.errors.count, "error") %> prohibited
-        this article from being saved:
+        this coin from being saved:
       </h2>
       <ul>
         <% @coin.errors.full_messages.each do |msg| %>

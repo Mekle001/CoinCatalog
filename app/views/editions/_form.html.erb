@@ -4,7 +4,7 @@
     <div id="error_explanation">
       <h2>
         <%= pluralize(@edition.errors.count, "error") %> prohibited
-        this article from being saved:
+        this edition from being saved:
       </h2>
       <ul>
         <% @edition.errors.full_messages.each do |msg| %>
@@ -32,6 +32,16 @@
   <p>
     <%= form.label :mintdate %><br>
     <%= form.date_select :mintdate %>
+  </p>
+
+  <p>
+    <%= form.label :material %><br>
+    <%= form.collection_select :material_id, Material.all, :id, :name, include_blank: true %>
+  </p>
+
+  <p>
+    <%= form.label :finish %><br>
+    <%= form.collection_select :finish_id, Finish.all, :id, :name, include_blank: true %>
   </p>
 
   <p>

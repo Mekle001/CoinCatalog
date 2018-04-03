@@ -5,7 +5,8 @@
 <table width="100%">
   <tr>
     <th>Name</th>
-    <th>Description</th>
+    <th>Artist</th>
+    <th>Mint</th>
     <th>Contributor</th>
     <th>Actions</th>
   </tr>
@@ -13,7 +14,8 @@
   <% @coins.each do |coin| %>
     <tr>
       <td><%= coin.name %></td>
-      <td><%= coin.description %></td>
+      <td><%= coin.artist.name unless !coin.artist.present? %></td>
+      <td><%= coin.mint.name unless !coin.mint.present? %></td>
       <td><%= coin.user.name %></td>
       <td>
         <% if logged_in? %>
@@ -22,8 +24,8 @@
         <%= link_to 'Delete', coin_path(coin),
                       method: :delete,
                       data: { confirm: 'Are you sure?' } %>
-          <% end %>
-          </td>
+        <% end %>
+      </td>
     </tr>
   <% end %>
 </table>

@@ -1,6 +1,7 @@
 class Api::V1::EditionsController < Api::V1::BaseController
     skip_before_action :valid_user, only: [:index]
-    skip_before_action :admin_user
+
+    superclass.perms = { "create" => ["AEDT"], :update => ["EEDT"], :destroy => ["DEDT"] }
 
     def index
         if params[:coin_id].present?

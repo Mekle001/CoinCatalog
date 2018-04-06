@@ -30,6 +30,18 @@ module SessionsHelper
     end
   end
 
+  # Returns true if the user has the specified privilege
+  def has_privilege?(shortname)
+    current_user.roles.each do |role|
+      role.privileges.each do |privilege|
+        if privilege.shortname.casecmp(shortname).zero?
+          return true
+        end
+      end
+    end
+    return false
+  end
+
   # Returns true if the user is logged in, false otherwise.
   def logged_in?
     !current_user.nil?

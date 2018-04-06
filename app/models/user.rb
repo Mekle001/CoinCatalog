@@ -13,6 +13,8 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
   has_many :coins
   has_many :editions
+  has_and_belongs_to_many :roles
+  #has_many :privileges, :through => :roles
 
   def User.getbyid (id)
     #Rails.cache.fetch("user/#{id}", expires_in: 1.hour) do

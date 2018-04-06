@@ -2,7 +2,7 @@ class Initial < ActiveRecord::SeedMigration
   
   def self.up
     puts "Creating Users"
-    User.create!(name: "Mike Garlick",
+    User.create( name: "Mike Garlick",
                  email: "mike@earthlingsnw.com",
                  password:"password",
                  password_confirmation:"password",

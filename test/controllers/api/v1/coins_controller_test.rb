@@ -1,4 +1,5 @@
 require 'test_helper'
+require 'json'
 
 class Api::V1::CoinsControllerTest < ActionDispatch::IntegrationTest
 
@@ -14,10 +15,10 @@ class Api::V1::CoinsControllerTest < ActionDispatch::IntegrationTest
 
     test "should create" do
         log_in_as(@user)
-#        post api_v1_coins_path,
-#            as: :json, 
-#            params: {format: 'json', coin: {name: "Test Coin 1", description: "Details on TestCoin1"}}
-#        assert_response :success
+        post api_v1_coins_path,
+            as: :json, 
+            params: {format: 'json', coin: {name: "Test Coin 1", description: "Details on TestCoin1"}}
+        assert_response :success
     end
     
 end

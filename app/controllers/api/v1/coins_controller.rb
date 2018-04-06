@@ -8,7 +8,7 @@ class Api::V1::CoinsController < Api::V1::BaseController
     end
 
     def create
-        respond_with :api, :v1, Coin.create(coin_params)
+        respond_with :api, :v1, current_user.coins.new(coin_params)
     end
 
     def destroy 
@@ -24,7 +24,7 @@ class Api::V1::CoinsController < Api::V1::BaseController
     private 
 
     def coin_params
-        params.require(:coin).permit(:name,:description, :size, :thickness, :mint_id, :artist_id, :unitsize_id, :unitthickness_id)
+        params.require(:coin).permit(:name,:description, :size, :thickness, :mint_id, :artist_id, :unitsize_id, :unitthickness_id, :user_id)
     end
 end
   

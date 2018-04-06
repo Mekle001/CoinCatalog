@@ -11,13 +11,6 @@ class Api::V1::BaseController < ApplicationController
 
   protected
 
-  # Confirms a logged-in user.
-  def logged_in_user
-    unless logged_in?
-      respond_with []
-    end
-  end
-
   def valid_user
     unless logged_in?
         head 422

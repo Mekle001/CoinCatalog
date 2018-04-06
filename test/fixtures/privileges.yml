@@ -1,0 +1,62 @@
+
+
+adduser:
+  name: "Add User"
+  shortname: "AUSR"
+  roles: admin
+viewuser:
+  name: "View User Details"
+  shortname: "VUSR"
+  roles: admin
+edituser:  
+  name: "Edit Users"
+  shortname: "EUSR"
+  roles: admin
+deluser:
+  name: "Delete Users"
+  shortname: "DUSR"
+  roles: admin
+moduser:
+  name: "Modify User Roles"
+  shortname: "MURL"
+  roles: admin
+modrole:
+  name: "Modify Role Privileges"
+  shortname: "MROP"
+  roles: admin
+addcoin:
+  name: "Add Coin"
+  shortname: "ACON"
+  roles: admin, contributor
+editcoin:
+  name: "Edit Coin"
+  shortname: "ECON"
+  roles: admin, contributor
+delcoin:
+  name: "Delete Coin"
+  shortname: "DCON"
+  roles: admin 
+addedition:
+  name: "Add Edition"
+  shortname: "AEDT"
+  roles: admin, contributor
+editedition:
+  name: "Edit Edition"
+  shortname: "EEDT"
+  roles: admin, contributor
+deledition:
+  name: "Delete Edition"
+  shortname: "DEDT"
+  roles: admin
+addlookup:
+  name: "Add Lookup"
+  shortname: "ALKP"
+  roles: admin
+editlookup:
+  name: "Edit Lookup"
+  shortname: "ELKP"
+  roles: admin
+dellookup:
+  name: "Delete Lookup"
+  shortname: "DLKP"
+  roles: admin

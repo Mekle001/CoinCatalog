@@ -77,5 +77,20 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.authenticated?(:remember,'')
   end
 
+  test "user has roles and privileges" do
+    assert_equal 0, @user.roles.count
+    @user.save
+    @role = Role.new(name: "Test Role")
+    @role.save
+    @priv1 = Privilege.new(name: "test Privilege", shortname: "TPRV")
+    @priv1.save
+    @priv2 = Privilege.new(name: "Second test Privilege", shortname: "TPR2")
+    @priv2.save
+    @role.privileges = [@priv1, @priv2]
+    @user.roles = [@role]
+    assert_equal 1, @user.roles.count
+    assert_equal 2, @user.roles.first.privileges.count
+  end
+
 end
 

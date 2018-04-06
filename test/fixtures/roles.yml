@@ -1,0 +1,10 @@
+
+
+admin: 
+  name: Site Administrator
+
+contributor:
+  name: Coin Contributor
+
+owner:
+  name: Collection Owner

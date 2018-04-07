@@ -1,6 +1,11 @@
+require 'active_support/core_ext'
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  before_action :check_role
+  class_attribute :perms
   include SessionsHelper
+
+  self.perms = { "dummy" => ["ALKP"], "dummy2" => ["ELKP"] }
 
   protected
 
@@ -23,5 +28,16 @@ class ApplicationController < ActionController::Base
       redirect_to login_url
     end
   end
+
+  def check_role
+    return if !perms[action_name].present?
+    return if perms[action_name].count == 0
+    perms[action_name].each do |required_privilege|
+      return if has_privilege? required_privilege
+    end
+    store_location
+    flash[:danger] = "Please log in."
+    redirect_to login_url
+end
 
 end

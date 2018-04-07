@@ -1,5 +1,7 @@
 class Api::V1::UsersController < Api::V1::BaseController
 
+    superclass.perms = {"create" => ["AUSR"], "update" => ["EUSR"], "destroy" => ["DUSR"] }
+
     def index
         respond_with User.all
     end

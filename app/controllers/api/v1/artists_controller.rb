@@ -1,6 +1,8 @@
 class Api::V1::ArtistsController < Api::V1::BaseController
   skip_before_action :valid_user, only: [:index]
 
+  superclass.perms = { "create" => ["ALKP"], "update" => ["ELKP"], "destroy" => ["DLKP"] }
+
   def index
     respond_with Artist.all
   end

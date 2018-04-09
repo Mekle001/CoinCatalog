@@ -1,11 +1,10 @@
+# Editions of Coins
 class Edition < ApplicationRecord
-#  delegate :url_helpers, to: 'Rails.application.routes'
-#  def base_uri
-#    url_helpers.edition_path(self)
-#  end
-
   belongs_to :coin, required: true
-  belongs_to :icon, foreign_key:"icon_id", class_name: "Graphic", required: false
+  belongs_to :icon,
+             foreign_key: 'icon_id',
+             class_name: 'Graphic',
+             required: false
   belongs_to :mint, required: false
   belongs_to :finish, required: false
   belongs_to :material, required: false

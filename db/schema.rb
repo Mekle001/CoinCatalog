@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180404023500) do
+ActiveRecord::Schema.define(version: 20180409022950) do
 
   create_table "artists", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -22,6 +22,11 @@ ActiveRecord::Schema.define(version: 20180404023500) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "attributes_coins", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "attribute_id", null: false
+    t.bigint "coin_id", null: false
   end
 
   create_table "coins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -69,6 +74,11 @@ ActiveRecord::Schema.define(version: 20180404023500) do
     t.index ["user_id"], name: "index_editions_on_user_id"
   end
 
+  create_table "editions_flags", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "edition_id", null: false
+    t.bigint "flag_id", null: false
+  end
+
   create_table "enamels", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -79,6 +89,10 @@ ActiveRecord::Schema.define(version: 20180404023500) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "flags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
   end
 
   create_table "graphics", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -163,6 +177,13 @@ ActiveRecord::Schema.define(version: 20180404023500) do
   create_table "roles_users", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "user_id", null: false
     t.bigint "role_id", null: false
+  end
+
+  create_table "seed_migrations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_seed_migrations_on_name", unique: true
   end
 
   create_table "units", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
